@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Base logback configuration for Audit Log
+-->
+
+<included>
+    <appender name="FILE-AUDIT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>../log/CFTO-UserLog.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%t %date %msg%n </Pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>../log/CFTO-UserLog_%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- keep the log information for 14 days -->
+            <maxHistory>14</maxHistory>
+            <!-- Remove log files older than 14 days -->
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+            <totalSizeCap>2GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+    <logger name="us.deloitteinnovation.tieout.audit" level="INFO" additivity="false">
+        <appender-ref ref="FILE-AUDIT" />
+    </logger>
+</included>
