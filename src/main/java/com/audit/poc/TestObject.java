@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.test;
+package us.deloitteinnovation.tieout.audit;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * @author tpeetha
+ * @author Tejeswar Peetha
  *
  */
 public class TestObject {
